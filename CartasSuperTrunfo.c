@@ -31,8 +31,8 @@ int main(){
     printf("População: %f milhoes de habitantes\n", populacao);
 
     printf("DIGITE A ÁREA EM KM\n");
-    scanf("%e", &area);
-    printf("Área em KM: %e Kilometros\n", area);
+    scanf("%f", &area);
+    printf("Área em KM: %f Kilometros\n", area);
     
     printf("DIGITE O PIB\n");
     scanf("%f", &pib);
@@ -44,7 +44,7 @@ int main(){
 
     //organização das informações das cartas//
 
-    printf("ESTADO: %c\nCARTA: %s\nCIDADE: %s\nPOPULAÇÃO: %f\nÁREA: %e\nPIB: %f\nPONTOS TURISTICOS: %d\n" , Estado, codigo, cidade, populacao, area, pib, turismo);
+    printf("ESTADO: %c\nCODIGO: %s\nCIDADE: %s\nPOPULAÇÃO: %f\nÁREA: %f\nPIB: %f\nPONTOS TURISTICOS: %d\n" , Estado, codigo, cidade, populacao, area, pib, turismo);
 
     return 0;
     
