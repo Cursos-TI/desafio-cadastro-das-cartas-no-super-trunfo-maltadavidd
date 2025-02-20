@@ -1,57 +1,55 @@
 #include <stdio.h>
+#include <string.h> // Para manipulação de strings
 
-int main(){
-
-    printf("Desafio super trunfo!\n");
-
-
-//variaveis utilizadas//
-    char Estado;
+int main() {
+    char Estado[100];
     char codigo[4];
-    char cidade[20];
+    char cidade[100];
     float populacao;
     float area;
     float pib;
     int turismo;
 
-//inserção de dados e caracteristicas das cartas//
+    // Lê o Estado
+    printf("DIGITE O ESTADO: ");
+    fgets(Estado, sizeof(Estado), stdin);
+    Estado[strcspn(Estado, "\n")] = '\0'; // Remove o '\n' do final da string
 
-    printf("DIGITE O ESTADO\n");
-    scanf("%c", &Estado);
-    printf("Estado: %c\n", Estado);
-    
-    printf("DIGITE O CODIGO DA CARTA\n");
-    scanf("%s", &codigo);
-    printf("Codigo da carta: %s\n", codigo);
+    // Lê o Código da Carta
+    printf("DIGITE O CODIGO DA CARTA: ");
+    scanf("%3s", codigo); // Limita a 3 caracteres + '\0' para segurança
+    getchar(); // Limpa o '\n' do buffer após o scanf
 
-    printf("DIGITE A CIDADE\n");
-    scanf("%s", &cidade);
-    printf("Cidade: %s\n", cidade);
-    
-    printf("DIGITE A POPULAÇÃO\n");  
+    // Lê a Cidade
+    printf("DIGITE A CIDADE: ");
+    fgets(cidade, sizeof(cidade), stdin);
+    cidade[strcspn(cidade, "\n")] = '\0'; // Remove o '\n'
+
+    // Lê a População
+    printf("DIGITE A POPULAÇÃO (em milhões): ");
     scanf("%f", &populacao);
-    printf("População: %f milhoes de habitantes\n", populacao);
 
-    printf("DIGITE A ÁREA EM KM\n");
-    scanf("%f", &area);
-    printf("Área em KM: %f Kilometros\n", area);
-    
-    printf("DIGITE O PIB\n");
+    // Lê a Área
+    printf("DIGITE A ÁREA EM KM²: ");
+    scanf("%f", &area); // Usei %f para simplificar, mas pode usar %e se quiser notação científica
+
+    // Lê o PIB
+    printf("DIGITE O PIB (em bilhões): ");
     scanf("%f", &pib);
-    printf("Pib: %f Bilhões de reais\n", pib);
 
-    printf("PONTOS TURISTICOS\n");
+    // Lê os Pontos Turísticos
+    printf("QUANTOS PONTOS TURÍSTICOS EXISTEM?: ");
     scanf("%d", &turismo);
-    printf("Pontos turisticos: %d pontos turisticos\n", turismo);
 
-    //organização das informações das cartas//
-
-    printf("ESTADO: %c\nCODIGO: %s\nCIDADE: %s\nPOPULAÇÃO: %f\nÁREA: %f\nPIB: %f\nPONTOS TURISTICOS: %d\n" , Estado, codigo, cidade, populacao, area, pib, turismo);
+    // Saída final formatada
+    printf("\n====== INFORMAÇÕES DO ESTADO ======\n");
+    printf("ESTADO: %s\n", Estado);
+    printf("CÓDIGO DA CARTA: %s\n", codigo);
+    printf("CIDADE: %s\n", cidade);
+    printf("POPULAÇÃO: %.2f milhões de habitantes\n", populacao);
+    printf("ÁREA: %.2f km²\n", area);
+    printf("PIB: %.2f bilhões de reais\n", pib);
+    printf("PONTOS TURÍSTICOS: %d\n", turismo);
 
     return 0;
-    
-
-
-
-
 }
